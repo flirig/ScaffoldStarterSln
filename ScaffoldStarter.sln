@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffoldStarter.Domain", "ScaffoldStarter.Domain\ScaffoldStarter.Domain.csproj", "{CF50631C-34C5-4DAB-A83F-276577B75BD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffoldStarter.Tests", "ScaffoldStarter.Tests\ScaffoldStarter.Tests.csproj", "{F4ECBD4F-DA54-48BC-8915-E055A1F345D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF50631C-34C5-4DAB-A83F-276577B75BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF50631C-34C5-4DAB-A83F-276577B75BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF50631C-34C5-4DAB-A83F-276577B75BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF50631C-34C5-4DAB-A83F-276577B75BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4ECBD4F-DA54-48BC-8915-E055A1F345D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4ECBD4F-DA54-48BC-8915-E055A1F345D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4ECBD4F-DA54-48BC-8915-E055A1F345D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4ECBD4F-DA54-48BC-8915-E055A1F345D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

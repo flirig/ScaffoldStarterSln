@@ -1,0 +1,7 @@
+@startuml
+package "ScaffoldStarter" {
+ [ScaffoldStarter.Domain]
+ [ScaffoldStarter.Tests] #848482
+ database "Product.db Sqlite"
+}
+@enduml

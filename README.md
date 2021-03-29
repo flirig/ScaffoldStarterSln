@@ -8,11 +8,10 @@
 3. Context - Класс содержащий набор коллекций энтити из БД и набор Апи для работы с ней. Позволяет удобно работать с Базой как со Множеством объектов к примеру используя синтаксис запросов LINQ.
 
 ## Установка dotnet sdk
-![Microsoft](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fdotnet%2Fcore%2Finstall%2F&6&0)
-
-## Установка Scaffold
+![https://docs.microsoft.com/ru-ru/dotnet/core/install/](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fdotnet%2Fcore%2Finstall%2F&4&0)
+## Установка EntityFramework Tools включая Scaffold
 [Microsoft](https://docs.microsoft.com/ru-ru/ef/core/get-started/overview/install)  
-![](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2Fcore%2Fget-started%2Foverview%2Finstall%23get-the-net-core-cli-tools&4&0)  
+![https://docs.microsoft.com/ru-ru/ef/core/get-started/overview/install](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2Fcore%2Fget-started%2Foverview%2Finstall%23get-the-net-core-cli-tools&4&0)  
 
 ```bash
 dotnet tool install --global dotnet-ef
@@ -23,16 +22,18 @@ dotnet tool install --global dotnet-ef
 nuget install Microsoft.EntityFrameworkCore.Design
 nuget install Microsoft.EntityFrameworkCore.Sqlite
 ```
-## Реврс инжиниринг - Генерация кода
+## Реконструирование - Генерация кода
 Запускаем Cli в директории проекта
 Команда состоит из:
 1. Точка входа ```dotnet ef dbcontext scaffold```
 2. Строка подключения ```"DataSource=Product.db"```
-3. Драйвер подключения зависит от баз данных которые вы используете ```Microsoft.EntityFrameworkCore.Sqlite```
+3. Поставщик базы данных ```Microsoft.EntityFrameworkCore.Sqlite```
 4. Дополнительные опции тк Расположение, Названия, список таблиц, форсирование и т.п. ``` -o Product -c ProductContext --table Developers --table Bugs --table Tasks -f```
 ```
    dotnet ef dbcontext scaffold "DataSource=Product.db" Microsoft.EntityFrameworkCore.Sqlite -o Product -c ProductContext --table Developers --table Bugs --table Tasks -f
 ```
+![https://docs.microsoft.com/ru-ru/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2Fcore%2Fmanaging-schemas%2Fscaffolding%3Ftabs%3Ddotnet-core-cli&4&0)
+
 ## Разбираемся что получлось
 
 У генерации данных таким обазом есть ряд своих приемуществ.
@@ -42,14 +43,14 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
 
    ```c#
    // ScaffoldStarter.Domain/Product/Bug.cs
-
-    public partial class Bug
-    {
-        public long Id { get; set; }
-        public string Title { get; set; }
-        public long? DeveloperId { get; set; }
-        public long? Status { get; set; }
-    }
+   
+   public partial class Bug
+   {
+       public long Id { get; set; }
+       public string Title { get; set; }
+       public long? DeveloperId { get; set; }
+       public long? Status { get; set; }
+   }
    ```
 
    ```c#
@@ -87,44 +88,6 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
    ScaffoldStarter.Domain/Product/BugPartial.cs  
    `ScaffoldStarter.Domain/Product/ProductContext.cs`  
    ScaffoldStarter.Domain/Product/ProductContextPartial.cs
-
-
-## Пример добавления и обновления записи в БД.
-
-   ```c#
-    [Fact]
-    public void DeveloperName_Should_BeUpdated()
-    {
-        // Arrange
-        var testDeveloper = _context.Developers.Add(
-            new Developer
-            {
-                FullName = "Tester Testov",
-                Tasks = new List<Task>(new []
-                {
-                    new Task
-                    {
-                        Title = "Task Title",
-                        Status = 0,
-                    }
-                })
-                
-            });
-        _context.SaveChanges();
-
-        // Act
-        _context.Database.ExecuteSqlRaw("UPDATE Developers SET FullName = 'Tester Testerov' WHERE Id=1");
-        _context.SaveChanges();
-        var developer = _context.Developers
-                .AsNoTracking()
-                .Include( developer => developer.Tasks)
-                .SingleOrDefault();
-
-        // Assert
-        developer.FullName.Should().Be("Tester Testerov");
-        developer.Tasks.Count().Should().Be(1);
-    }
-   ```
 
 ## Ссылка на GitHub
 ![https://github.com/flirig/ScaffoldStarterSln](http://qrcoder.ru/code/?https%3A%2F%2Fgithub.com%2Fflirig%2FScaffoldStarterSln&6&0)

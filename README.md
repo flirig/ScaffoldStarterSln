@@ -3,21 +3,24 @@
 ![File not found](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/flirig/ScaffoldStarterSln/main/sln.txt)
 
 ## Entity Framework
-1. ORM (Object Relation Mapping) это связывание Объектов вашего ЯП с реляционными БД. Основными компонентами современного ORM EF являются Entity & Context
+1. ORM (Object Relation Mapping) это связывание Объектов вашего ЯП с реляционными БД. Основными компонентами Entity Framework являются Entity & DbContext
 2. Entity - Класс или экземпляр класса представляющего схему таблицы и одиночное вхождение в нее
-3. Context - Класс содержащий набор коллекций энтити из БД и набор Апи для работы с ней. Позволяет удобно работать с Базой как со Множеством объектов к примеру используя синтаксис запросов LINQ.
+3. DbContext - Класс содержащий набор коллекций энтити из БД и набор Апи для работы с ней. Позволяет удобно работать с Базой как со множеством объектов к примеру используя синтаксис запросов LINQ.  
 
+[Microsoft EntityFramework](https://docs.microsoft.com/ru-ru/ef/)  
+![https://docs.microsoft.com/ru-ru/ef/](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2F&6&0)
 ## Установка dotnet sdk
 ![https://docs.microsoft.com/ru-ru/dotnet/core/install/](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fdotnet%2Fcore%2Finstall%2F&4&0)
 ## Установка EntityFramework Tools включая Scaffold
-[Microsoft](https://docs.microsoft.com/ru-ru/ef/core/get-started/overview/install)  
-![https://docs.microsoft.com/ru-ru/ef/core/get-started/overview/install](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2Fcore%2Fget-started%2Foverview%2Finstall%23get-the-net-core-cli-tools&4&0)  
-
+Выполняем в Cli
 ```bash
 dotnet tool install --global dotnet-ef
 ```
+
+[Microsoft установка ef-tools](https://docs.microsoft.com/ru-ru/ef/core/get-started/overview/install)  
+![https://docs.microsoft.com/ru-ru/ef/core/get-started/overview/install](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2Fcore%2Fget-started%2Foverview%2Finstall%23get-the-net-core-cli-tools&4&0)  
 ## Добавление пакетов в проект ScaffoldStarter.Domain
-Запускаем Cli в директории проекта
+Выполняем в Cli в директории проекта
 ```bash
 nuget install Microsoft.EntityFrameworkCore.Design
 nuget install Microsoft.EntityFrameworkCore.Sqlite
@@ -42,26 +45,30 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
 3. Генерирует составные(partial) классы для создания расширений.
 
    ```c#
-   // ScaffoldStarter.Domain/Product/Bug.cs
+   // ScaffoldStarter.Domain/Product/Developer.cs
    
-   public partial class Bug
-   {
-       public long Id { get; set; }
-       public string Title { get; set; }
-       public long? DeveloperId { get; set; }
-       public long? Status { get; set; }
-   }
+    public partial class Developer
+    {
+        public Developer()
+        {
+            Tasks = new HashSet<Task>();
+        }
+
+        public long Id { get; set; }
+        public string FullName { get; set; }
+
+        public virtual ICollection<Task> Tasks { get; set; }
+    }
    ```
 
    ```c#
-   // ScaffoldStarter.Domain/Product/BugPartial.cs
+   // ScaffoldStarter.Domain/Product/DeveloperPartial.cs
    
-   public partial class Bug
+   public partial class Developer
    {
-       public virtual Developer Developer { get; set; }
+       public List<Bug> Bugs = new List<Bug>();
    }
    ```
-
 4. Генерирует контексты
 5. Контексты для удобства расширения также создаются partial.
 
@@ -81,14 +88,16 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
         }
     }
    ```
-
+   
 5. Написанные вами расширения не будут пропадать при обновлении контекста. Обновятся только сгенерированные файлы
 
-   `ScaffoldStarter.Domain/Product/Bug.cs`  
-   ScaffoldStarter.Domain/Product/BugPartial.cs  
+   `ScaffoldStarter.Domain/Product/Developer.cs`  
+   ScaffoldStarter.Domain/Product/DeveloperPartial.cs  
    `ScaffoldStarter.Domain/Product/ProductContext.cs`  
    ScaffoldStarter.Domain/Product/ProductContextPartial.cs
 
 ## Ссылка на GitHub
 ![https://github.com/flirig/ScaffoldStarterSln](http://qrcoder.ru/code/?https%3A%2F%2Fgithub.com%2Fflirig%2FScaffoldStarterSln&6&0)
+
+## Telegram @Flirig
 

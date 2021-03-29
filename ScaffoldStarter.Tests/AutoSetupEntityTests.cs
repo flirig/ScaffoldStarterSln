@@ -25,7 +25,7 @@ namespace ScaffoldStarter.Tests
             _context.Developers.Add(
                 new Developer
                 {
-                    FullName = "Tester Testov",
+                    FullName = "Developer Developerov",
                     Tasks = new List<Task>(new []
                     {
                         new Task
@@ -40,7 +40,6 @@ namespace ScaffoldStarter.Tests
 
             // Act
             _context.Database.ExecuteSqlRaw("UPDATE Developers SET FullName = 'Tester Testerov' WHERE Id=1");
-            _context.SaveChanges();
             var developer = _context.Developers
                     .AsNoTracking()
                     .Include( developer => developer.Tasks)

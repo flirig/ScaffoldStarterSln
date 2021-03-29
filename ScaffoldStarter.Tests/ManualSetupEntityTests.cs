@@ -13,7 +13,7 @@ namespace ScaffoldStarter.Tests
         private ProductContext _context;
         private ITestOutputHelper _output;
 
-        public AfterSetupEntityTests(ITestOutputHelper output)
+        public ManualSetupEntityTests(ITestOutputHelper output)
         {
             _context = new ProductContext();
             _output = output;
@@ -48,10 +48,9 @@ namespace ScaffoldStarter.Tests
         public void Dependency_Added()
         {
             // Arrange
-            var testDeveloper =
-                _context.Developers.Add(new Developer
+            _context.Developers.Add(new Developer
                 {
-                    FullName = "Tester Testov",
+                    FullName = "Devloper Developerov",
                     Bugs = new List<Bug>(new []
                     {
                         new Bug

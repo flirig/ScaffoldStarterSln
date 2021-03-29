@@ -31,7 +31,7 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
 1. Точка входа ```dotnet ef dbcontext scaffold```
 2. Строка подключения ```"DataSource=Product.db"```
 3. Поставщик базы данных ```Microsoft.EntityFrameworkCore.Sqlite```
-4. Дополнительные опции тк Расположение, Названия, список таблиц, форсирование и т.п. ``` -o Product -c ProductContext --table Developers --table Bugs --table Tasks -f```
+4. Дополнительные опции тк Расположение, Названия, список таблиц, принудительное обновление и т.п. ``` -o Product -c ProductContext --table Developers --table Bugs --table Tasks -f```
 ```
    dotnet ef dbcontext scaffold "DataSource=Product.db" Microsoft.EntityFrameworkCore.Sqlite -o Product -c ProductContext --table Developers --table Bugs --table Tasks -f
 ```
@@ -39,10 +39,10 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
 
 ## Разбираемся что получлось
 
-У генерации данных таким обазом есть ряд своих приемуществ.
+Scaffold при реконструкции БД
 1. Переносит струтуру таблиц в классы.
 2. Переносит связи таблиц, если они созданы на слое базы данных.
-3. Генерирует составные(partial) классы для создания расширений.
+3. Генерирует составные (partial) классы для создания расширений.
 
    ```c#
    // ScaffoldStarter.Domain/Product/Developer.cs

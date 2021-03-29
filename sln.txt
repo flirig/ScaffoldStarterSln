@@ -1,8 +1,8 @@
 @startuml
 package "ScaffoldStarter" {
  [ScaffoldStarter.Domain]
- [ScaffoldStarter.Tests] #848482
+ [ScaffoldStarter.Tests UNLOADED] #848482
  database "Product.db Sqlite"
- database "Product.db Sqlite Copied" #848482
+ database "Product.db Sqlite COPIED" #848482
 }
 @enduml

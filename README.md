@@ -1,6 +1,6 @@
 # Стартовый набор для изучения dotnet Entity Framework Scaffold 
 
-![File not found](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/flirig/ScaffoldStarterSln/blob/main/sln.puml)
+![File not found](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/flirig/ScaffoldStarterSln/main/sln.txt)
 
 ## Entity Framework
 1. ORM (Object Relation Mapping) это связывание Объектов вашего ЯП с реляционными БД. Основными компонентами современного ORM EF являются Entity & Context

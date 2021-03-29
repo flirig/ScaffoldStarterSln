@@ -1,5 +1,3 @@
-# ShortCuts
-Все действия выполняются в CLI
 ## Установка dotnet sdk
 ![Microsoft](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fdotnet%2Fcore%2Finstall%2F&6&0)
 
@@ -9,12 +7,14 @@
 ```bash
 dotnet tool install --global dotnet-ef
 ```
-## Добавление пакетов в проект
+## Добавление пакетов в проект ScaffoldStarter.Domain
+Запускаем Cli в директории проекта
 ```bash
 nuget install Microsoft.EntityFrameworkCore.Design
 nuget install Microsoft.EntityFrameworkCore.Sqlite
 ```
 ## Реврс инжиниринг - Генерация кода
+Запускаем Cli в директории проекта ScaffoldStarter.Domain
 Команда состоит из:
    1. Точка входа ```dotnet ef dbcontext scaffold```
    2. Строка подключения ```"DataSource=Product.db"```

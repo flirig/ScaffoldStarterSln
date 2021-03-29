@@ -22,7 +22,7 @@ namespace ScaffoldStarter.Tests
         public void DeveloperName_Should_BeUpdated()
         {
             // Arrange
-            var testDeveloper = _context.Developers.Add(
+            _context.Developers.Add(
                 new Developer
                 {
                     FullName = "Tester Testov",

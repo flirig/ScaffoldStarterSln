@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 
 namespace ScaffoldStarter.Tests
 {
-    public class AfterSetupEntityTests
+    public class ManualSetupEntityTests
     {
         private ProductContext _context;
         private ITestOutputHelper _output;
@@ -23,8 +23,8 @@ namespace ScaffoldStarter.Tests
         public void Dependency_Not_Added()
         {
             // Arrange
-            var testDeveloper = 
-                _context.Developers.Add(new Developer
+            var testDeveloper =  _context.Developers.Add(
+                new Developer
                 {
                     FullName = "Tester Testov"
                 });
@@ -63,16 +63,14 @@ namespace ScaffoldStarter.Tests
 
             // Act
             _context.SaveChanges();
-            
-            // Arrange
             var developer = _context.Developers
                 .AsNoTracking()
                 .Include(dev => dev.Bugs)
                 .SingleOrDefault();
+            
+            // Arrange
             developer.Bugs.Count
                 .Should().Be(1);
-            developer.Bugs.Single().Developer.Id
-                .Should().Be(testDeveloper.Entity.Id);
         }
     }
 }

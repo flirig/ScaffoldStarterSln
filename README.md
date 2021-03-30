@@ -1,6 +1,6 @@
 # Стартовый набор для изучения dotnet Entity Framework Scaffold 
 
-## Неестеров Евгений Альфабанк telegram @Flirig
+## Нестеров Евгений Альфабанк telegram @Flirig
 
 ## Репозиторий
 ![File not found](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/flirig/ScaffoldStarterSln/main/sln.txt)
@@ -14,7 +14,7 @@
 [Microsoft EntityFramework](https://docs.microsoft.com/ru-ru/ef/)  
 ![https://docs.microsoft.com/ru-ru/ef/](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2F&6&0)
 ## Установка dotnet sdk
-[Microsoft dotnet sdk](https://docs.microsoft.com/ru-ru/dotnet/core/install/)
+[Microsoft dotnet sdk](https://docs.microsoft.com/ru-ru/dotnet/core/install/)  
 ![https://docs.microsoft.com/ru-ru/dotnet/core/install/](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fdotnet%2Fcore%2Finstall%2F&4&0)
 ## Установка EntityFramework Tools включая Scaffold
 Выполняем в Cli

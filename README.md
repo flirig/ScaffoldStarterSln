@@ -1,6 +1,4 @@
-# Стартовый набор для изучения dotnet Entity Framework Scaffold 
-
-## Нестеров Евгений Альфабанк telegram @Flirig
+# Стартовый набор для изучения dotnet Entity Framework Scaffold
 
 ## Репозиторий
 ![File not found](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/flirig/ScaffoldStarterSln/main/sln.txt)

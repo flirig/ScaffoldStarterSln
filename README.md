@@ -40,6 +40,11 @@ nuget install Microsoft.EntityFrameworkCore.Sqlite
 ```
 ![https://docs.microsoft.com/ru-ru/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli](http://qrcoder.ru/code/?https%3A%2F%2Fdocs.microsoft.com%2Fru-ru%2Fef%2Fcore%2Fmanaging-schemas%2Fscaffolding%3Ftabs%3Ddotnet-core-cli&4&0)
 
+## Подключаем проект с примерами и тестами
+в директории ScaffoldStarter/ выполняем команду  
+      ```
+      dotnet sln add */*.csproj
+      ```
 ## Разбираемся что получлось
 
 Scaffold при реконструкции БД
